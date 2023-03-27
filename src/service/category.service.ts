@@ -26,5 +26,18 @@ export const CategoryService = {
 			url: 'category',
 			method: 'POST'
 		})
+	},
+	async update(id: string, data: string) {
+		return instance<ICategory>({
+			url: `category/${id}`,
+			method: 'PUT',
+			data
+		})
+	},
+	async delete(id: string) {
+		return instance<ICategory>({
+			url: `category/${id}`,
+			method: 'DELETE'
+		})
 	}
 }
