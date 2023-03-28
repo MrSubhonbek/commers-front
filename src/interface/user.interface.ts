@@ -5,3 +5,10 @@ export interface IUser {
 	avatarPath: string
 	phone: string
 }
+export interface IUserData {
+	email: string
+	password?: string
+	name?: string
+	avatarPath?: string
+	phone?: string
+}
