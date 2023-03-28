@@ -15,3 +15,22 @@ export interface IProduct {
 export interface IProductDetails {
 	product: IProduct
 }
+export interface IProductData {
+	name: string
+	price?: number
+	description?: string
+	images?: string[]
+	categoryId: number
+}
+export interface IProductFilters {
+	sort?: EnumProductSort
+	searchTrem?: string
+	page?: string | number
+	perPage: string | number
+}
+export enum EnumProductSort {
+	HIGH_PRICE = 'high-price',
+	LOW_PRICE = 'low-price',
+	NEWEST = 'newest',
+	OLDEST = 'oldest'
+}
