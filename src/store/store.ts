@@ -1,5 +1,4 @@
-import { combineReducers } from '@reduxjs/toolkit'
-import { configureStore } from '@reduxjs/toolkit/dist/configureStore'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import {
 	FLUSH,
 	PAUSE,
