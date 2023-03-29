@@ -2,7 +2,6 @@ import { IUser } from './user.interface'
 
 export interface IUserState {
 	email: string
-	isAdmin: boolean
 }
 export interface ITokens {
 	accessToken: string

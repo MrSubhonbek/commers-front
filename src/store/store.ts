@@ -11,6 +11,8 @@ import persistReducer from 'redux-persist/es/persistReducer'
 import persistStore from 'redux-persist/es/persistStore'
 import storage from 'redux-persist/lib/storage'
 
+import { userSlice } from './user/user.slice'
+
 const persistConfig = {
 	key: 'e-cummers',
 	storage,
@@ -19,6 +21,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
 	//cart: cartSlice.reducer,
 	//carousel: carouselSlice.reducer
+	user: userSlice.reducer
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
