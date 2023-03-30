@@ -1,10 +1,37 @@
-import { FC, PropsWithChildren } from 'react'
+import Cookies from 'js-cookie'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { FC, PropsWithChildren, useEffect } from 'react'
+
+import { useAction } from '@/hooks/useAction'
+import { useAuth } from '@/hooks/useAuth'
 
 import { TypeComponentAuthFields } from './auth-page.type'
+import { getAccessToken } from '@/service/auth/auth.helper'
+
+const DynamicCheckRole = dynamic(() => import('./CheckRole'), { ssr: false })
 
 export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 	Component: { isOnlyUser },
 	children
 }) => {
-	return <div>AuthProvider</div>
+	const { user } = useAuth()
+	const { checkAuth, logout } = useAction()
+	const { pathname } = useRouter()
+
+	useEffect(() => {
+		const accessToken = getAccessToken()
+		if (accessToken) checkAuth()
+	}, [])
+
+	useEffect(() => {
+		const refreshToken = Cookies.get('refreshToken')
+		if (!refreshToken && user) logout()
+	}, [pathname])
+
+	return isOnlyUser ? (
+		<DynamicCheckRole Component={{ isOnlyUser }}>AuthProvider</DynamicCheckRole>
+	) : (
+		<>{children}</>
+	)
 }

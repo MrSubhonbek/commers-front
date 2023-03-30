@@ -17,3 +17,4 @@ export const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 	router.pathname !== '/auth' && router.replace('/auth')
 	return null
 }
+export default CheckRole
