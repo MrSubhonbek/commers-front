@@ -5,10 +5,10 @@ import {
 	PERSIST,
 	PURGE,
 	REGISTER,
-	REHYDRATE
+	REHYDRATE,
+	persistReducer,
+	persistStore
 } from 'redux-persist'
-import persistReducer from 'redux-persist/es/persistReducer'
-import persistStore from 'redux-persist/es/persistStore'
 import storage from 'redux-persist/lib/storage'
 
 import { userSlice } from './user/user.slice'
@@ -36,3 +36,5 @@ export const store = configureStore({
 })
 
 export const persister = persistStore(store)
+
+export type IRootState = ReturnType<typeof rootReducer>
