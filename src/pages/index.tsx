@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-export const HomePage: NextPage = () => {
+const HomePage: NextPage = () => {
 	return <div className="text-red-500">index</div>
 }
+export default HomePage

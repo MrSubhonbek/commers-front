@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-export const Auth = () => {
-	return <div>Auth</div>
+import { Meta } from '@/components/ui/Meta'
+
+const Auth: FC = () => {
+	return <Meta title="Auth">Auth</Meta>
 }
+
+export default Auth

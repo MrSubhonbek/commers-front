@@ -12,8 +12,7 @@ export const titleMerge = (title: string) => `${title} | commerce`
 export const Meta: FC<PropsWithChildren<ISeo>> = ({
 	title,
 	children,
-	description,
-	image
+	description
 }) => {
 	const { asPath } = useRouter()
 	const currentUrl = `${process.env.APP_URL}${asPath}`
