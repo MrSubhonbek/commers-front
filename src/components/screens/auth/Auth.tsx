@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 
-import { Meta } from '@/components/ui/Meta'
+import Button from '@/components/ui/button/Button'
 
 const Auth: FC = () => {
-	return <Meta title="Auth">Auth</Meta>
+	return <Button variant="white">Auth</Button>
 }
 
 export default Auth

@@ -16,6 +16,7 @@ export const Meta: FC<PropsWithChildren<ISeo>> = ({
 }) => {
 	const { asPath } = useRouter()
 	const currentUrl = `${process.env.APP_URL}${asPath}`
+
 	return (
 		<>
 			<Head>
