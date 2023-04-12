@@ -2,13 +2,13 @@ import cn from 'clsx'
 import React, { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react'
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-	variant: 'orange' | 'white'
+	variant?: 'orange' | 'white'
 }
 
 const Button: FC<PropsWithChildren<IButton>> = ({
 	children,
 	className,
-	variant = 'dark',
+	variant = 'orange',
 	...rest
 }) => {
 	return (

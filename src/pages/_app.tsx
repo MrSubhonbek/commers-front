@@ -8,7 +8,7 @@ import { TypeComponentAuthFields } from '@/providers/auth-provider/auth-page.typ
 
 import { persister, store } from '@/store/store'
 
-import '@/styles/globals.css'
+import '@/styles/globals.scss'
 
 const queryClient = new QueryClient({
 	defaultOptions: {

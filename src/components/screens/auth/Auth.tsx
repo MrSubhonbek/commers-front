@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import Heading from '@/components/ui/Heading'
+import { Meta } from '@/components/ui/Meta'
 import Button from '@/components/ui/button/Button'
 
 import { useAction } from '@/hooks/useAction'
@@ -22,12 +23,19 @@ const Auth: FC = () => {
 	} = useForm<IEmailPassword>({
 		mode: 'onChange'
 	})
-	const onSubmit: SubmitHandler<IEmailPassword> = data => {}
+	const onSubmit: SubmitHandler<IEmailPassword> = data => {
+		if (type === 'login') login(data)
+		else register(data)
+
+		reset()
+	}
 	return (
-		<>
+		<Meta title="Auth">
 			<Heading title="Title" />
-			<Button variant="white">Auth</Button>
-		</>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<Button>Auth</Button>
+			</form>
+		</Meta>
 	)
 }
 
