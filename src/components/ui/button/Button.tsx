@@ -14,9 +14,9 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 	return (
 		<button
 			className={cn(
-				'rounded-full shadow-sm font-medium px-4 py-2',
+				' shadow-sm font-medium px-[1vw] py-[0.5vh]',
 				{ 'text-white bg-primary': variant === 'orange' },
-				{ 'text-primary bg-white': variant === 'white' },
+				{ 'text-primary bg-white shadow-md': variant === 'white' },
 				className
 			)}
 			{...rest}

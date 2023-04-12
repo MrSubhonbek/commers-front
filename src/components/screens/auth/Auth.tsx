@@ -2,17 +2,20 @@ import React, { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import Heading from '@/components/ui/Heading'
+import Loader from '@/components/ui/Loader'
 import { Meta } from '@/components/ui/Meta'
 import Button from '@/components/ui/button/Button'
 import Field from '@/components/ui/input/Field'
 
 import { useAction } from '@/hooks/useAction'
 import { useAuth } from '@/hooks/useAuth'
+import { useAuthRedirect } from '@/hooks/useAuthRedirect'
 
 import { validEmail } from './valid-email'
 import { IEmailPassword } from '@/interface/auth.interface'
 
 const Auth: FC = () => {
+	useAuthRedirect()
 	const { isLoading } = useAuth()
 	const { login, register } = useAction()
 	const [type, setType] = useState<'login' | 'register'>('login')
@@ -31,35 +34,61 @@ const Auth: FC = () => {
 
 		reset()
 	}
+	if (isLoading)
+		return (
+			<div className="flex w-screen h-screen items-center justify-center">
+				<div className="w-[20vh] h-[20vh]">
+					<Loader />
+				</div>
+			</div>
+		)
 	return (
 		<Meta title="Auth">
-			<Heading title="Title" />
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Field
-					placeholder="Email"
-					error={errors.email?.message}
-					{...formRegister('email', {
-						required: 'Email is required',
-						pattern: {
-							value: validEmail,
-							message: 'PLease enter a valid Email address'
-						}
-					})}
-				/>
-				<Field
-					placeholder="Password"
-					error={errors.password?.message}
-					type="password"
-					{...formRegister('email', {
-						required: 'Password is required',
-						minLength: {
-							value: 6,
-							message: 'Min length should more 6 symbols'
-						}
-					})}
-				/>
-				<Button>Auth</Button>
-			</form>
+			<section className="flex h-screen">
+				<form
+					className=" bg-white shadow  p-[3vh] m-auto"
+					onSubmit={handleSubmit(onSubmit)}
+				>
+					<Heading
+						title={type === 'register' ? 'Register' : 'Login'}
+						className="text-center text-[3vh] h-[3vh]"
+					/>
+
+					<Field
+						placeholder="Email"
+						error={errors.email?.message}
+						{...formRegister('email', {
+							required: 'Email is required',
+							pattern: {
+								value: validEmail,
+								message: 'PLease enter a valid Email address'
+							}
+						})}
+					/>
+					<Field
+						placeholder="Password"
+						error={errors.password?.message}
+						type="password"
+						{...formRegister('password', {
+							required: 'Password is required',
+							minLength: {
+								value: 6,
+								message: 'Min length should more 6 symbols'
+							}
+						})}
+					/>
+					<div className="flex justify-between">
+						<Button type="submit">Auth</Button>
+						<button
+							type="button"
+							onClick={() => setType(type === 'login' ? 'register' : 'login')}
+							className="opacity-20"
+						>
+							{type === 'login' ? 'Register' : 'Login'}
+						</button>
+					</div>
+				</form>
+			</section>
 		</Meta>
 	)
 }
