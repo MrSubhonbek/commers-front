@@ -5,10 +5,14 @@ import styles from './Field.module.scss'
 import { IField } from './field.interface'
 
 const Field = forwardRef<HTMLInputElement, IField>(
-	({ placeholder, error, className, type = 'text', style, ...rest }, ref) => {
+	(
+		{ placeholder, error, Icon, className, type = 'text', style, ...rest },
+		ref
+	) => {
 		return (
 			<div className={cn('', className)} style={style}>
 				<label>
+					{Icon && <Icon className="mr-3" />}
 					<span>{placeholder}</span>
 					<input type={type} ref={ref} {...rest} />
 				</label>
@@ -17,4 +21,6 @@ const Field = forwardRef<HTMLInputElement, IField>(
 		)
 	}
 )
+Field.displayName = 'Field'
+
 export default Field

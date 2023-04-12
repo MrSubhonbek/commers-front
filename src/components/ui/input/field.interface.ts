@@ -3,6 +3,6 @@ import { IconType } from 'react-icons'
 
 export interface IField extends InputHTMLAttributes<HTMLInputElement> {
 	placeholder: string
-	icon: IconType
+	Icon?: IconType
 	error?: string
 }
