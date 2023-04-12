@@ -19,8 +19,8 @@ const persistConfig = {
 	whitelist: ['cart']
 }
 const rootReducer = combineReducers({
-	//cart: cartSlice.reducer,
-	//carousel: carouselSlice.reducer
+	cart: cartSlice.reducer,
+	carousel: carouselSlice.reducer,
 	user: userSlice.reducer
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
