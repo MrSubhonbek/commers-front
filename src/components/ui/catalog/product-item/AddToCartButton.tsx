@@ -23,7 +23,7 @@ const AddToCartButton: FC<IProductItemProps> = ({ product }) => {
 				onClick={() =>
 					currentElement
 						? removeFromCart({ id: currentElement.id })
-						: addToCart({ product, quantity: 1, size: selectedSize })
+						: addToCart({ product, quantity: 1, price: product.price })
 				}
 			>
 				{currentElement ? <AiFillHeart /> : <AiOutlineHeart />}

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React, { FC } from 'react'
 
+import AddToCartButton from './AddToCartButton'
 import { IProduct } from '@/interface/product.interface'
 
 interface IProductItemProps {
