@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import React, { FC } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
@@ -13,8 +13,15 @@ interface IProductItemProps {
 }
 const FavoriteButton: FC<IProductItemProps> = ({ productId }) => {
 	const { profile } = useProfile()
-	const { mutate } = useMutation(['toggle favorite'], () =>
-		UserServices.toggleFavorite(productId.toString())
+	const { invalidateQueries } = useQueryClient()
+	const { mutate } = useMutation(
+		['toggle favorite'],
+		() => UserServices.toggleFavorite(productId.toString()),
+		{
+			onSuccess() {
+				invalidateQueries(['get profile'])
+			}
+		}
 	)
 	const isExists = profile.favorite.some(favorite => favorite.id === productId)
 
