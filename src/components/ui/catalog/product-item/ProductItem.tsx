@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 
 import AddToCartButton from './AddToCartButton'
 import FavoriteButton from './FavoriteButton'
+import ProductRating from './ProductRating'
 import { IProduct } from '@/interface/product.interface'
 
 interface IProductItemProps {
@@ -23,7 +24,7 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
 				/>
 				<h3>{product.name}</h3>
 				<div>{product.category.name}</div>
-				{/*<ProductRaiting rating={product.rating} />*/}
+				<ProductRating product={product} />
 				<div>{product.price}</div>
 			</div>
 		</div>

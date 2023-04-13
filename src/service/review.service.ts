@@ -16,5 +16,11 @@ export const ReviewService = {
 			method: 'POST',
 			data
 		})
+	},
+	async getAverage(productId: string) {
+		return instance<number>({
+			url: `${Reviews}/average-bu-product/${productId}`,
+			method: 'GET'
+		})
 	}
 }
