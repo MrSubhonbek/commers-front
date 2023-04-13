@@ -1,11 +1,11 @@
 import { instance } from '@/api/api.interceptor'
 
-import { IUser, IUserData } from '@/interface/user.interface'
+import { IFullUser, IUser, IUserData } from '@/interface/user.interface'
 
 const Users = 'users'
 export const UserServices = {
 	async getProfile() {
-		return instance<IUser[]>({
+		return instance<IFullUser>({
 			url: `${Users}/profile`,
 			method: 'GET'
 		})

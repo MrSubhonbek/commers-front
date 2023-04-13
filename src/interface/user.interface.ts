@@ -1,5 +1,8 @@
+import { IOrder } from './order.interface'
+import { IProduct } from './product.interface'
+
 export interface IUser {
-	id: number
+	id: number | string
 	email: string
 	name: string
 	avatarPath: string
@@ -11,4 +14,8 @@ export interface IUserData {
 	name?: string
 	avatarPath?: string
 	phone?: string
+}
+export interface IFullUser extends IUser {
+	favorite: IProduct[]
+	orders: IOrder[]
 }

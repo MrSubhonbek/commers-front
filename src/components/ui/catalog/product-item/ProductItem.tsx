@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 
 import AddToCartButton from './AddToCartButton'
+import FavoriteButton from './FavoriteButton'
 import { IProduct } from '@/interface/product.interface'
 
 interface IProductItemProps {
@@ -22,7 +23,7 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
 				/>
 				<h3>{product.name}</h3>
 				<div>{product.category.name}</div>
-				<ProductRaiting rating={product.rating} />
+				{/*<ProductRaiting rating={product.rating} />*/}
 				<div>{product.price}</div>
 			</div>
 		</div>
