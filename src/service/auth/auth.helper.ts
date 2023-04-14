@@ -11,7 +11,7 @@ export const removeTokensStorage = () => {
 	Cookies.remove('access')
 }
 export const getAccessToken = () => {
-	const accessToken = Cookies.get('accessToken')
+	const accessToken = Cookies.get('access')
 	return accessToken || null
 }
 export const getUserFromStorage = () => {

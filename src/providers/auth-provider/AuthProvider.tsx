@@ -26,7 +26,7 @@ export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 
 	useEffect(() => {
 		const refreshToken = Cookies.get('refreshToken')
-		if (!refreshToken && user) logout()
+		//if (!refreshToken && user) logout()
 	}, [pathname])
 
 	return isOnlyUser ? (

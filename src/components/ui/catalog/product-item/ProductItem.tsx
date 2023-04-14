@@ -12,7 +12,7 @@ interface IProductItemProps {
 
 const ProductItem: FC<IProductItemProps> = ({ product }) => {
 	return (
-		<div>
+		<div className="mb-20">
 			<div>
 				<FavoriteButton productId={product.id} />
 				<AddToCartButton product={product} />
