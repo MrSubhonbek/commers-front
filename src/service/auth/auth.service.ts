@@ -21,7 +21,6 @@ export const AuthService = {
 	},
 	async getNewTokens() {
 		const refreshToken = Cookies.get('refresh')
-		console.log(refreshToken)
 
 		const response = await axiosClassic.post<string, { data: IAuthResponse }>(
 			'/auth/login/access-token',

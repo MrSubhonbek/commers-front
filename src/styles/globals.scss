@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 body {
-	@apply bg-bg-color text-[2vh] text-black;
+	@apply m-0 bg-bg-color p-0 text-[2vh] text-black;
 }

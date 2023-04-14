@@ -23,7 +23,6 @@ const FavoriteButton: FC<IProductItemProps> = ({ productId }) => {
 		}
 	)
 	if (!profile) return null
-	console.log(profile)
 
 	const isExists = profile?.favorite?.some(
 		favorite => favorite.id === productId
