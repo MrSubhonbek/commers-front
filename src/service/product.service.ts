@@ -3,13 +3,14 @@ import { instance } from '@/api/api.interceptor'
 import {
 	IProduct,
 	IProductData,
-	IProductFilters
+	IProductFilters,
+	TypePaginationProduct
 } from '@/interface/product.interface'
 
-const Products = 'products'
+const Products = 'product'
 export const ProductService = {
 	async getAll(queryData = {} as IProductFilters) {
-		return instance<IProduct[]>({
+		return instance<TypePaginationProduct>({
 			url: Products,
 			method: 'GET',
 			params: queryData

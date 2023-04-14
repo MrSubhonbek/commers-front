@@ -2,7 +2,7 @@ import { instance } from '@/api/api.interceptor'
 
 import { IFullUser, IUser, IUserData } from '@/interface/user.interface'
 
-const Users = 'users'
+const Users = 'user'
 export const UserServices = {
 	async getProfile() {
 		return instance<IFullUser>({

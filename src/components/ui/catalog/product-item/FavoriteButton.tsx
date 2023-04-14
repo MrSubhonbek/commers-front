@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
 import { useAction } from '@/hooks/useAction'
+import { useAuth } from '@/hooks/useAuth'
 import { useCart } from '@/hooks/useCart'
 import { useProfile } from '@/hooks/useProfile'
 
@@ -12,6 +13,9 @@ interface IProductItemProps {
 	productId: string | number
 }
 const FavoriteButton: FC<IProductItemProps> = ({ productId }) => {
+	const { user } = useAuth()
+	if (!user) return null
+
 	const { profile } = useProfile()
 	const { invalidateQueries } = useQueryClient()
 	const { mutate } = useMutation(
@@ -23,6 +27,8 @@ const FavoriteButton: FC<IProductItemProps> = ({ productId }) => {
 			}
 		}
 	)
+	console.log(profile)
+
 	const isExists = profile.favorite.some(favorite => favorite.id === productId)
 
 	return (
