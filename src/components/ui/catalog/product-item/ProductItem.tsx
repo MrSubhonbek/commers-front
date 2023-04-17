@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
 
+import { convertPrice } from '@/utils/convertPrice'
+
 import AddToCartButton from './AddToCartButton'
 import ProductRating from './ProductRating'
 import { IProduct } from '@/interface/product.interface'
@@ -18,30 +20,34 @@ const DynamicFavoriteButton = dynamic(() => import('./FavoriteButton'), {
 const ProductItem: FC<IProductItemProps> = ({ product }) => {
 	return (
 		<div>
-			<div className="bg-white relative">
+			<div className="bg-white relative overflow-hidden h-full shadow-md">
 				<div className="absolute top-2 right-2 z-10">
 					<DynamicFavoriteButton productId={product.id} />
 					<AddToCartButton product={product} />
 				</div>
 				<Link href={`/product/${product.slug}`}>
 					<Image
-						width={300}
-						height={300}
+						width={500}
+						height={500}
 						src={product.images[0]}
 						alt={product.name}
 					/>
 				</Link>
-				<Link href={`/product/${product.slug}`}>
-					<h3 className="mb-1">{product.name}</h3>
-				</Link>
-				<Link
-					href={`/category/${product.category.slug}`}
-					className="text-aqua text-sm mb-2"
-				>
-					{product.category.name}
-				</Link>
-				<ProductRating product={product} />
-				<div>{product.price}</div>
+				<div className="p-[2vh] h-full">
+					<Link href={`/product/${product.slug}`}>
+						<h3>{product.name}</h3>
+					</Link>
+					<Link
+						href={`/category/${product.category.slug}`}
+						className="text-aqua text-[1.5vh] max-md:text-[1.5vw] mb-2"
+					>
+						{product.category.name}
+					</Link>
+					<ProductRating product={product} />
+					<div className="text-[3.5vh] max-md:text-[3.5vw] font-semibold">
+						{convertPrice(product.price)}
+					</div>
+				</div>
 			</div>
 		</div>
 	)

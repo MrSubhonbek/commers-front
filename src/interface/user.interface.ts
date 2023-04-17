@@ -16,6 +16,6 @@ export interface IUserData {
 	phone?: string
 }
 export interface IFullUser extends IUser {
-	favorite: IProduct[]
+	favorites: IProduct[]
 	orders: IOrder[]
 }

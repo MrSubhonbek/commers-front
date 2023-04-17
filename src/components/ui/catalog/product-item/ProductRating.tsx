@@ -14,27 +14,20 @@ const ProductRating: FC<IRatingProps> = ({ product }) => {
 		) || 0
 	)
 	return (
-		<div>
-			<span>
+		<div className="mb-2 ">
+			<div className="mr-1 flex items-center">
 				<Rating
 					readonly
 					initialValue={rating}
 					SVGstyle={{
 						display: `inline-block`
 					}}
-					size={34}
+					size={20}
 					allowFraction
 					transition
 				/>
-				<span
-					style={{
-						color: '#FFBC0D'
-					}}
-				>
-					{rating}
-				</span>
-			</span>
-			<span>({product.reviews.length} reviews)</span>
+			</div>
+			<div className="text-[1.3vh]">({product.reviews.length} reviews)</div>
 		</div>
 	)
 }

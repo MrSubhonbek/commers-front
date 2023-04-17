@@ -12,25 +12,25 @@ interface IProductItemProps {
 const FavoriteButton: FC<IProductItemProps> = ({ productId }) => {
 	const { profile } = useProfile()
 
-	const { invalidateQueries } = useQueryClient()
+	const queryClient = useQueryClient()
 	const { mutate } = useMutation(
 		['toggle favorite'],
 		() => UserServices.toggleFavorite(productId.toString()),
 		{
 			onSuccess() {
-				invalidateQueries(['get profile'])
+				queryClient.invalidateQueries(['get profile'])
 			}
 		}
 	)
 	if (!profile) return null
 
-	const isExists = profile?.favorite?.some(
+	const isExists = profile?.favorites?.some(
 		favorite => favorite.id === productId
 	)
 
 	return (
 		<div>
-			<button onClick={() => mutate()}>
+			<button onClick={() => mutate()} className="text-primary">
 				{isExists ? <AiFillHeart /> : <AiOutlineHeart />}
 			</button>
 		</div>

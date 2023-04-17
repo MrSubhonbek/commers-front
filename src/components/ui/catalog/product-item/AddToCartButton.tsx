@@ -20,6 +20,7 @@ const AddToCartButton: FC<IProductItemProps> = ({ product }) => {
 	return (
 		<div>
 			<button
+				className="text-primary"
 				onClick={() =>
 					currentElement
 						? removeFromCart({ id: currentElement.id })
