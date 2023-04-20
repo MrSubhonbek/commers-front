@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import Select, { components } from 'react-select'
+import Select from 'react-select'
+
+import { EnumProductSort } from '@/interface/product.interface'
 
 const SortDropdown = () => {
 	const [selectedOption, setSelectedOption] = useState<string | undefined>()
+
 	const options = [
-		{ value: 'chocolate', label: 'Chocolate' },
-		{ value: 'strawberry', label: 'Strawberry' },
-		{ value: 'vanilla', label: 'Vanilla' }
+		{ value: EnumProductSort.NEWEST, label: 'Chocolate' },
+		{ value: EnumProductSort.OLDEST, label: 'Strawberry' },
+		{ value: EnumProductSort.LOW_PRICE, label: 'Vanilla' },
+		{ value: EnumProductSort.HIGH_PRICE, label: 'Vanilla' }
 	]
 	return (
 		<div className="px-[3vw] pt-[3vw]">
@@ -23,8 +27,6 @@ const SortDropdown = () => {
 					}
 				})}
 				onChange={selectedOption => {
-					console.log(selectedOption?.value)
-
 					setSelectedOption(selectedOption?.value)
 				}}
 			/>

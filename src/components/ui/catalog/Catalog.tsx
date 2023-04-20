@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 
 import Heading from '../Heading'
 import Loader from '../Loader'
+import Button from '../button/Button'
 
 import SortDropdown from './SortDropdown'
 import ProductItem from './product-item/ProductItem'
@@ -32,6 +33,7 @@ const Catalog: FC<ICatalogProps> = ({
 					<ProductItem product={product} key={product.id} />
 				))}
 			</div>
+			{isPagination && <Button className="mx-[3.5vw]">Load More</Button>}
 		</section>
 	)
 }
