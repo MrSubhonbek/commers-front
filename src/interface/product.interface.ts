@@ -31,7 +31,7 @@ export type TypeProductData = {
 }
 export interface IProductFilters {
 	sort?: EnumProductSort
-	searchTrem?: string
+	searchTerm?: string
 	page?: string | number
 	perPage?: string | number
 }

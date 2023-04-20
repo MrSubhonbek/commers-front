@@ -18,7 +18,7 @@ export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 	const { user } = useAuth()
 	const { checkAuth, logout } = useAction()
 	const { pathname } = useRouter()
-
+	/*
 	useEffect(() => {
 		const accessToken = getAccessToken()
 		if (accessToken) checkAuth()
@@ -26,11 +26,11 @@ export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 
 	useEffect(() => {
 		const refreshToken = Cookies.get('refreshToken')
-		//if (!refreshToken && user) logout()
+		if (!refreshToken && user) logout()
 	}, [pathname])
-
+*/
 	return isOnlyUser ? (
-		<DynamicCheckRole Component={{ isOnlyUser }}>AuthProvider</DynamicCheckRole>
+		<DynamicCheckRole Component={{ isOnlyUser }}>{children}</DynamicCheckRole>
 	) : (
 		<>{children}</>
 	)

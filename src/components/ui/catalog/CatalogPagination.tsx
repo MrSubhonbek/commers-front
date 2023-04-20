@@ -55,7 +55,7 @@ const CatalogPagination: FC<ICatalogPaginationProps> = ({ data, title }) => {
 					return (
 						<Button
 							key={index}
-							className="mr-[3.5vw] text-[1.3vh]"
+							className="mr-[3vw] text-[1.3vw]"
 							variant={page === pageNumber ? 'orange' : 'white'}
 							onClick={() => setPage(pageNumber)}
 						>
