@@ -25,7 +25,7 @@ const CatalogPagination: FC<ICatalogPaginationProps> = ({ data, title }) => {
 		EnumProductSort.NEWEST
 	)
 	const { data: response, isLoading } = useQuery(
-		['product', sortType],
+		['product', sortType, page],
 		() =>
 			ProductService.getAll({
 				page,
@@ -37,9 +37,10 @@ const CatalogPagination: FC<ICatalogPaginationProps> = ({ data, title }) => {
 		}
 	)
 	if (isLoading) return <Loader />
+	const ln = response.length % 4
 
 	return (
-		<section>
+		<section className="flex flex-col h-full">
 			{title && <Heading title={title} />}
 			<SortDropdown sortType={sortType} setSortType={setSortType} />
 			<div className="grid grid-cols-4 max-md:grid-cols-1 max-lg:grid-cols-2 max-xl:grid-cols-3 gap-[3vw] p-[3.5vw]">
@@ -47,17 +48,21 @@ const CatalogPagination: FC<ICatalogPaginationProps> = ({ data, title }) => {
 					<ProductItem product={product} key={product.id} />
 				))}
 			</div>
-			<div className="w-full text-end">
-				<Button
-					onClick={() => {
-						setPage(page => page + 1)
-						console.log(page)
-					}}
-					variant="white"
-					className="mx-[3.5vw]"
-				>
-					Load More
-				</Button>
+			<div className="flex-grow"></div>
+			<div className="text-center align-bottom">
+				{Array.from({ length: (response.length + ln) / 4 }).map((_, index) => {
+					const pageNumber = index + 1
+					return (
+						<Button
+							key={index}
+							className="mr-[3.5vw] text-[1.3vh]"
+							variant={page === pageNumber ? 'orange' : 'white'}
+							onClick={() => setPage(pageNumber)}
+						>
+							{pageNumber}
+						</Button>
+					)
+				})}
 			</div>
 		</section>
 	)

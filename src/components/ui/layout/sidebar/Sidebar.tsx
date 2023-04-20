@@ -1,7 +1,11 @@
 import React from 'react'
 
 const Sidebar = () => {
-	return <aside className="h-full bg-secondary text-white">Sidebar</aside>
+	return (
+		<aside className="h-full min-h-screen bg-secondary text-white">
+			Sidebar
+		</aside>
+	)
 }
 
 export default Sidebar
