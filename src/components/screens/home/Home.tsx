@@ -1,17 +1,16 @@
 import React, { FC } from 'react'
 
-import Heading from '@/components/ui/Heading'
 import { Meta } from '@/components/ui/Meta'
-import Catalog from '@/components/ui/catalog/Catalog'
+import CatalogPagination from '@/components/ui/catalog/CatalogPagination'
 import Layout from '@/components/ui/layout/Layout'
 
 import { TypePaginationProduct } from '@/interface/product.interface'
 
-const Home: FC<TypePaginationProduct> = ({ product }) => {
+const Home: FC<TypePaginationProduct> = data => {
 	return (
 		<Meta title="Home">
 			<Layout>
-				<Catalog title="Freshed products" product={product} />
+				<CatalogPagination title="Freshed products" data={data} />
 			</Layout>
 		</Meta>
 	)

@@ -19,7 +19,7 @@ const DynamicFavoriteButton = dynamic(() => import('./FavoriteButton'), {
 
 const ProductItem: FC<IProductItemProps> = ({ product }) => {
 	return (
-		<div>
+		<div className="animate-scaleIn hover:shadow-lg transition duration-300 ease-in-out">
 			<div className="bg-white relative overflow-hidden h-full shadow-md">
 				<div className="absolute top-2 right-2 z-10">
 					<DynamicFavoriteButton productId={product.id} />

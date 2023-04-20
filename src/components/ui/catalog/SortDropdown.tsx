@@ -1,35 +1,41 @@
-import React, { useState } from 'react'
+import React, { FC } from 'react'
 import Select from 'react-select'
 
 import { EnumProductSort } from '@/interface/product.interface'
 
-const SortDropdown = () => {
-	const [selectedOption, setSelectedOption] = useState<string | undefined>()
+interface ISortDropdownProps {
+	sortType: EnumProductSort
+	setSortType: (value: EnumProductSort) => void
+}
 
+const SortDropdown: FC<ISortDropdownProps> = ({ setSortType }) => {
 	const options = [
-		{ value: EnumProductSort.NEWEST, label: 'Chocolate' },
-		{ value: EnumProductSort.OLDEST, label: 'Strawberry' },
-		{ value: EnumProductSort.LOW_PRICE, label: 'Vanilla' },
-		{ value: EnumProductSort.HIGH_PRICE, label: 'Vanilla' }
+		{ value: EnumProductSort.NEWEST, label: EnumProductSort.NEWEST },
+		{ value: EnumProductSort.OLDEST, label: EnumProductSort.OLDEST },
+		{ value: EnumProductSort.LOW_PRICE, label: EnumProductSort.LOW_PRICE },
+		{ value: EnumProductSort.HIGH_PRICE, label: EnumProductSort.HIGH_PRICE }
 	]
 	return (
-		<div className="px-[3vw] pt-[3vw]">
-			<Select
-				className="absolute z-20 "
-				options={options}
-				theme={theme => ({
-					...theme,
-					borderRadius: 0,
-					colors: {
-						...theme.colors,
-						primary25: '#F2F2F5',
-						primary: '#FF9902'
-					}
-				})}
-				onChange={selectedOption => {
-					setSelectedOption(selectedOption?.value)
-				}}
-			/>
+		<div className="flex justify-end">
+			<div className=" w-fit">
+				<Select
+					className="absolute z-20 mx-[3.5vw] mt-[3vw]"
+					options={options}
+					defaultValue={options[0]}
+					theme={theme => ({
+						...theme,
+						borderRadius: 0,
+						colors: {
+							...theme.colors,
+							primary25: '#F2F2F5',
+							primary: '#FF9902'
+						}
+					})}
+					onChange={selectedOption => {
+						if (selectedOption) setSortType(selectedOption.value)
+					}}
+				/>
+			</div>
 		</div>
 	)
 }

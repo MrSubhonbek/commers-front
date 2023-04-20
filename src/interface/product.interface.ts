@@ -22,11 +22,18 @@ export interface IProductData {
 	images?: string[]
 	categoryId: number
 }
+export type TypeProductData = {
+	name: string
+	price: number
+	description?: string
+	images: string[]
+	categoryId: number
+}
 export interface IProductFilters {
 	sort?: EnumProductSort
 	searchTrem?: string
 	page?: string | number
-	perPage: string | number
+	perPage?: string | number
 }
 export enum EnumProductSort {
 	HIGH_PRICE = 'high-price',
