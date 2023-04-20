@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 
 import Search from './Search'
+import HeaderCart from './cart/HeaderCart'
 
 const Header: FC = () => {
 	return (
@@ -16,8 +17,8 @@ const Header: FC = () => {
 				<Link href={'/favorites'} className="text-white">
 					<AiOutlineHeart />
 				</Link>
+				<HeaderCart />
 				{
-					//<HeaderCart />
 					//<HeaderProfile />
 				}
 			</div>
