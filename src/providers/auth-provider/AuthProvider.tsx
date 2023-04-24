@@ -18,11 +18,11 @@ export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 	const { user } = useAuth()
 	const { checkAuth, logout } = useAction()
 	const { pathname } = useRouter()
-	/*
 	useEffect(() => {
 		const accessToken = getAccessToken()
 		if (accessToken) checkAuth()
 	}, [])
+	/*
 
 	useEffect(() => {
 		const refreshToken = Cookies.get('refreshToken')

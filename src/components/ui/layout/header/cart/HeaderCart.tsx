@@ -17,7 +17,6 @@ const Cart: FC = () => {
 	const { isShow, ref, setIsShow } = useOutside(false)
 	const { items, total } = useCart()
 	const { push } = useRouter()
-	console.log(isShow)
 
 	return (
 		<div className="relative" ref={ref}>
@@ -28,28 +27,31 @@ const Cart: FC = () => {
 			/>
 			<div
 				className={cn(
-					'absolute top-[4vw]  -left-[3vw] bg-secondary px-[1vw] py-[1vw] z-30 text-white transition-all',
+					'absolute top-[4vw] w-[20vw] h-[50vh] overflow-auto flex flex-col justify-between -left-[17vw] bg-secondary px-[1vw] py-[1vw] z-30 text-white transition-all',
 					isShow ? 'block' : 'hidden'
 				)}
 			>
-				<div className="font-normal mb-[2vw]">My cart</div>
-
 				<div>
-					{items.length ? (
-						items.map(item => <CartItem item={item} key={item.id} />)
-					) : (
-						<div className="font-light">Cart is empty!</div>
-					)}
-				</div>
+					<div className="font-semibold mb-[2vw]">My cart</div>
 
-				<div>
-					<div>Total:</div>
-					<div>{convertPrice(total)}</div>
+					<div>
+						{items.length ? (
+							items.map(item => <CartItem item={item} key={item.id} />)
+						) : (
+							<div className="font-light">Cart is empty!</div>
+						)}
+					</div>
 				</div>
-				<div className="text-center">
-					<Button variant="white" className=" mt-[2vw]">
-						Place order
-					</Button>
+				<div>
+					<div className="mt-[2vh]">
+						<div>Total:</div>
+						<div className="font-semibold">{convertPrice(total)}</div>
+					</div>
+					<div className="text-center">
+						<Button variant="white" className=" mt-[2vw]">
+							Place order
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>

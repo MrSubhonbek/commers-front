@@ -9,6 +9,7 @@ export const saveTokensStorage = (data: ITokens) => {
 export const removeTokensStorage = () => {
 	Cookies.remove('refresh')
 	Cookies.remove('access')
+	localStorage.removeItem('user')
 }
 export const getAccessToken = () => {
 	const accessToken = Cookies.get('access')
