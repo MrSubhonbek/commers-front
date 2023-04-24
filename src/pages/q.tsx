@@ -13,7 +13,6 @@ const SearchPage = () => {
 	const { data } = useQuery(['search products', query.searchTerm], () =>
 		ProductService.getAll({ searchTerm: query.searchTerm as string })
 	)
-	console.log(data)
 
 	return (
 		<Meta title="Search">

@@ -10,6 +10,7 @@ export const removeTokensStorage = () => {
 	Cookies.remove('refresh')
 	Cookies.remove('access')
 	localStorage.removeItem('user')
+	location.reload()
 }
 export const getAccessToken = () => {
 	const accessToken = Cookies.get('access')

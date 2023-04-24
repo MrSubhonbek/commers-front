@@ -9,7 +9,7 @@ import HeaderCart from './cart/HeaderCart'
 const Header: FC = () => {
 	return (
 		<header
-			className="bg-secondary w-full px-[2vw] py-[2vh] grid text-white h-[10vh]"
+			className="bg-secondary w-full items-center px-[1vw] grid text-white h-[10vh]"
 			style={{ gridTemplateColumns: '1fr 3fr 1.2fr' }}
 		>
 			<Link href={'/'}>Logo</Link>
