@@ -20,11 +20,11 @@ const Sidebar: FC = () => {
 			select: ({ data }) => data
 		}
 	)
-	const { asPath, push } = useRouter()
+	const { asPath, replace } = useRouter()
 	const { logout } = useAction()
 	const { user } = useAuth()
 	return (
-		<aside className="flex flex-col justify-between bg-secondary text-white h-[90vh]">
+		<aside className="flex flex-col justify-between bg-secondary text-white min-h-[90vh] h-full">
 			<div>
 				{isLoading ? (
 					<Loader />
@@ -60,7 +60,7 @@ const Sidebar: FC = () => {
 					Logout
 				</Button>
 			) : (
-				<Button className=" py-[0.5vw]" onClick={() => push('auth')}>
+				<Button className=" py-[0.5vw]" onClick={() => replace('/auth')}>
 					Login
 				</Button>
 			)}
