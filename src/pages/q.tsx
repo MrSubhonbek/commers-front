@@ -19,7 +19,7 @@ const SearchPage = () => {
 			<Layout>
 				<Catalog
 					product={data?.product || []}
-					title={`Search by request ${query.searchTerm || ''}`}
+					title={`Search by request <${query.searchTerm || ''}>`}
 				/>
 			</Layout>
 		</Meta>
