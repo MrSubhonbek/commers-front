@@ -16,7 +16,6 @@ interface ICatalogProps {
 
 const Catalog: FC<ICatalogProps> = ({ product, title, isLoading }) => {
 	if (isLoading) return <Loader />
-
 	return (
 		<section>
 			{title && <Heading title={title} />}
@@ -24,6 +23,7 @@ const Catalog: FC<ICatalogProps> = ({ product, title, isLoading }) => {
 				{product.map(product => (
 					<ProductItem product={product} key={product.id} />
 				))}
+				{!product.length && <span>No products on request</span>}
 			</div>
 		</section>
 	)

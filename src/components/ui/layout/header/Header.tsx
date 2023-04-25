@@ -13,8 +13,8 @@ const Header: FC = () => {
 			className="bg-secondary w-full items-center px-[1vw] grid text-white h-[10vh]"
 			style={{ gridTemplateColumns: '1fr 3fr 1.2fr' }}
 		>
-			<Link href={'/'} className="w-fit text-[4vw] font-serif text-red">
-				Shop
+			<Link href={'/'} className="w-fit text-[2vw] font-serif text-primary">
+				July Flowers
 			</Link>
 			<Search />
 			<div className="flex items-center justify-end gap-[2vw]">

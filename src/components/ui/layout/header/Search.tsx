@@ -12,12 +12,14 @@ const Search: FC = () => {
 				type="search"
 				onChange={e => setSearchText(e.currentTarget.value)}
 				id="search-dropdown"
-				className="block p-2.5 w-full h-[4vh] z-20 text-sm text-white bg-secondary border border-primary outline-none "
+				className="block p-2.5 w-full h-[4vh] z-20 text-sm text-white bg-secondary placeholder:text-[1vw] border border-primary outline-none "
 				placeholder="Search..."
 			/>
 			<button
-				onClick={() => replace(`/q?searchTerm=${searchText}`)}
-				className="absolute top-0 right-0 h-[4vh] w-[4vh] flex items-center justify-center p-2.5 text-sm font-medium text-white bg-primary border border-primary outline-none hover:text-primary hover:bg-secondary"
+				onClick={() => {
+					if (searchText) replace(`/q?searchTerm=${searchText}`)
+				}}
+				className="absolute top-0 right-0 h-[4vh] w-[4vh] flex items-center justify-center p-2.5 text-sm font-medium text-black bg-primary border border-primary outline-none hover:bg-primary/90"
 			>
 				<svg
 					aria-hidden="true"

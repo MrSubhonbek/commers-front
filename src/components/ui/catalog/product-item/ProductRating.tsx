@@ -22,6 +22,7 @@ const ProductRating: FC<IRatingProps> = ({ product }) => {
 					SVGstyle={{
 						display: `inline-block`
 					}}
+					SVGstrokeColor="#123132"
 					size={20}
 					allowFraction
 					transition

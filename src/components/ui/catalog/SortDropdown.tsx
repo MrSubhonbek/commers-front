@@ -17,7 +17,7 @@ const SortDropdown: FC<ISortDropdownProps> = ({ setSortType }) => {
 	]
 	return (
 		<div className="flex justify-end">
-			<div className=" w-fit">
+			<div className="w-fit">
 				<Select
 					className="absolute z-20 mx-[3.5vw] mt-[3vw]"
 					options={options}

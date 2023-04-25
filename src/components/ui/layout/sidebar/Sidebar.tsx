@@ -30,22 +30,19 @@ const Sidebar: FC = () => {
 					<Loader />
 				) : data ? (
 					<>
-						<div className="text-[1.5vw] text-white mt-[1.5vh] text-center">
-							Categories:
-						</div>
 						<ul>
 							{data.map(category => (
 								<li key={category.id}>
 									<Link
 										className={cn(
-											'block text-[1vw] my-[1vw] px-[1.5vw] hover:text-primary transition-colors duration-200',
+											'block  my-[1vw] px-[1.5vw] hover:text-primary transition-colors duration-200',
 											asPath === `/category/${category.slug}`
 												? 'text-primary'
 												: 'text-white'
 										)}
 										href={`/category/${category.slug}`}
 									>
-										{category.name}
+										<h3>{category.name}</h3>
 									</Link>
 								</li>
 							))}
