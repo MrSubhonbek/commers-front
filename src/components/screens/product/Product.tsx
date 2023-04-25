@@ -2,13 +2,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import React, { FC, useState } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { Rating } from 'react-simple-star-rating'
-import 'swiper/css'
-import 'swiper/css/bundle'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 
 import Button from '@/components/ui/button/Button'
 
+import { useAction } from '@/hooks/useAction'
+import { useCart } from '@/hooks/useCart'
 import { useProfile } from '@/hooks/useProfile'
 
 import { convertPrice } from '@/utils/convertPrice'
@@ -33,7 +31,12 @@ const Product: FC<IProductProps> = ({ product }) => {
 			}
 		}
 	)
+	const { addToCart, removeFromCart } = useAction()
+	const { items } = useCart()
 
+	const currentElement = items.find(
+		cartItem => cartItem.product.id === product.id
+	)
 	const isExists = profile?.favorites?.some(
 		favorite => favorite.id === product.id
 	)
@@ -53,14 +56,14 @@ const Product: FC<IProductProps> = ({ product }) => {
 			<div className="flex flex-col justify-between">
 				<div>
 					<h3 className="font-semibold text-[2.5vw]">{product.name}</h3>
-					<h3 className="font-semibold text-[2.5vw]  my-[3vh]">
+					<div className="font-semibold text-[2.5vw]  my-[3vh]">
 						{convertPrice(product.price)}
-					</h3>
-					<h3>{product.descriptios}</h3>
-					<h3 className="font-semibold mt-[3vh] mb-[1vh]">
+					</div>
+					<span>{product.descriptios}</span>
+					<div className="font-semibold mt-[3vh] mb-[1vh]">
 						Total Review :{' '}
 						<span className="font-normal">{product.reviews.length}</span>
-					</h3>
+					</div>
 					<Rating
 						readonly
 						initialValue={rating}
@@ -74,8 +77,16 @@ const Product: FC<IProductProps> = ({ product }) => {
 					/>
 				</div>
 				<div className="w-full flex gap-[1vw]">
-					<Button className="w-full py-[1vw]" variant="dark">
-						Add To Cart
+					<Button
+						className="w-full py-[1vw]"
+						onClick={() =>
+							currentElement
+								? removeFromCart({ id: currentElement.id })
+								: addToCart({ product, quantity: 1, price: product.price })
+						}
+						variant="dark"
+					>
+						{currentElement ? 'Remove to Cart' : 'Add To Cart'}
 					</Button>
 					{profile && (
 						<Button

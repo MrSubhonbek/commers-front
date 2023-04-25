@@ -2,8 +2,6 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import { Autoplay, Pagination } from 'swiper'
 import 'swiper/css'
-import 'swiper/css/bundle'
-import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -20,12 +18,12 @@ const Images: FC<IImageProps> = ({ images }) => {
 		<Swiper
 			pagination={true}
 			autoplay={{
-				delay: 3000,
+				delay: 30000,
 				disableOnInteraction: false
 			}}
 			loop={true}
 			modules={[Autoplay, Pagination]}
-			className="mySwiper"
+			className="mySwiper text-primary"
 		>
 			{handleShowProduct}
 		</Swiper>
