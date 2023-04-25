@@ -1,3 +1,5 @@
+import { ICartItem } from './cart.interface'
+
 interface Amount {
 	value: string
 	currency: string
@@ -27,4 +29,18 @@ export interface IPaymentResponse {
 	paymentMethod: PaymentMethod
 	createdAt: Date
 	confirmation: Confirmation
+}
+export type TypeData = {
+	status?: EnumOrderStatus
+	item: {
+		quantity: number
+		price: number
+		productId: number
+	}[]
+}
+enum EnumOrderStatus {
+	PENDING = 'PENDING',
+	PAYED = 'PAYED',
+	SHIPPED = 'SHIPPED',
+	DELIVERED = 'DELIVERED'
 }

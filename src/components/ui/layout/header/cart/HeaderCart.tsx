@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query'
 import cn from 'clsx'
 import { useRouter } from 'next/router'
 import React, { FC } from 'react'
@@ -6,17 +7,37 @@ import { RiShoppingBagLine } from 'react-icons/ri'
 import Button from '@/components/ui/button/Button'
 import SquareButton from '@/components/ui/button/SquareButton'
 
+import { useAction } from '@/hooks/useAction'
 import { useCart } from '@/hooks/useCart'
 import { useOutside } from '@/hooks/useOutSide'
 
 import { convertPrice } from '@/utils/convertPrice'
 
 import CartItem from './cart-item/CartItem'
+import { OrderService } from '@/service/order.service'
 
 const Cart: FC = () => {
 	const { isShow, ref, setIsShow } = useOutside(false)
 	const { items, total } = useCart()
+	const { reset } = useAction()
 	const { push } = useRouter()
+
+	const { mutate } = useMutation(
+		['create order & payment'],
+		() =>
+			OrderService.place({
+				item: items.map(item => ({
+					price: item.price,
+					quantity: item.quantity,
+					productId: item.id
+				}))
+			}),
+		{
+			async onSuccess({ data }) {
+				push(data.confirmation.confirmation_url).then(() => reset())
+			}
+		}
+	)
 
 	return (
 		<div className="relative" ref={ref}>
@@ -48,7 +69,11 @@ const Cart: FC = () => {
 						<div className="font-semibold">{convertPrice(total)}</div>
 					</div>
 					<div className="text-center">
-						<Button variant="white" className=" mt-[2vw]">
+						<Button
+							variant="white"
+							className=" mt-[2vw]"
+							onClick={() => mutate}
+						>
 							Place order
 						</Button>
 					</div>
