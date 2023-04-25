@@ -3,6 +3,7 @@ import cn from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FC } from 'react'
+import { FiLogIn, FiLogOut } from 'react-icons/fi'
 
 import { useAction } from '@/hooks/useAction'
 import { useAuth } from '@/hooks/useAuth'
@@ -53,13 +54,19 @@ const Sidebar: FC = () => {
 				)}
 			</div>
 			{user ? (
-				<Button className=" py-[0.5vw]" onClick={() => logout()}>
-					Logout
-				</Button>
+				<button
+					className="flex justify-center gap-1 items-center py-[0.5vw] hover:text-primary transition-colors duration-200"
+					onClick={() => logout()}
+				>
+					<FiLogOut /> Logout
+				</button>
 			) : (
-				<Button className=" py-[0.5vw]" onClick={() => replace('/auth')}>
-					Login
-				</Button>
+				<button
+					className="flex justify-center items-center gap-1 py-[0.5vw] hover:text-primary transition-colors duration-200"
+					onClick={() => replace('/auth')}
+				>
+					<FiLogIn /> Login
+				</button>
 			)}
 		</aside>
 	)
