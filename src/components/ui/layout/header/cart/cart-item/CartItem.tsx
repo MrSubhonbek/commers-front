@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { FC } from 'react'
 
 import { convertPrice } from '@/utils/convertPrice'
@@ -16,7 +17,7 @@ const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 				alt={item.product.name}
 			/>
 			<div className="w-full">
-				<div className="">{item.product.name}</div>
+				<Link href={`product/${item.product.slug}`}>{item.product.name}</Link>
 				<div>{convertPrice(item.product.price)}</div>
 				<CartAction item={item} />
 			</div>

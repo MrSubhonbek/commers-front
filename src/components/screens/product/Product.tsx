@@ -11,7 +11,8 @@ import { useProfile } from '@/hooks/useProfile'
 
 import { convertPrice } from '@/utils/convertPrice'
 
-import Images from './Images'
+import Images from '../../ui/Images'
+
 import { IProduct } from '@/interface/product.interface'
 import { UserServices } from '@/service/user.service'
 

@@ -18,7 +18,7 @@ const Images: FC<IImageProps> = ({ images }) => {
 		<Swiper
 			pagination={true}
 			autoplay={{
-				delay: 30000,
+				delay: 6000,
 				disableOnInteraction: false
 			}}
 			loop={true}

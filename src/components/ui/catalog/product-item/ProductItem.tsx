@@ -5,6 +5,8 @@ import React, { FC } from 'react'
 
 import { convertPrice } from '@/utils/convertPrice'
 
+import Images from '../../Images'
+
 import AddToCartButton from './AddToCartButton'
 import ProductRating from './ProductRating'
 import { IProduct } from '@/interface/product.interface'
@@ -26,12 +28,9 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
 					<AddToCartButton product={product} />
 				</div>
 				<Link href={`/product/${product.slug}`}>
-					<Image
-						width={500}
-						height={500}
-						src={product.images[0]}
-						alt={product.name}
-					/>
+					<div className="w-full ">
+						<Images images={product.images} />
+					</div>
 				</Link>
 				<div className="p-[2vh] h-full">
 					<Link href={`/product/${product.slug}`}>
