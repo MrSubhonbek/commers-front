@@ -10,12 +10,15 @@ import { ICartItem } from '@/interface/cart.interface'
 const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 	return (
 		<div className="flex gap-[2vh] mt-[2vh]">
-			<Image
-				src={item.product.images[0]}
-				width={100}
-				height={100}
-				alt={item.product.name}
-			/>
+			<div className="w-[10vw]">
+				<Image
+					src={item.product.images[0]}
+					loading="lazy"
+					width={100}
+					height={100}
+					alt={item.product.name}
+				/>
+			</div>
 			<div className="w-full">
 				<Link href={`product/${item.product.slug}`}>{item.product.name}</Link>
 				<div>{convertPrice(item.product.price)}</div>
