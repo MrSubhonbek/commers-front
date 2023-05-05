@@ -19,7 +19,7 @@ const SortDropdown: FC<ISortDropdownProps> = ({ setSortType }) => {
 		<div className="flex justify-end">
 			<div className="w-fit">
 				<Select
-					className="absolute z-20 mx-[3.5vw] mt-[3vw]"
+					className="absolute text-[#123133] z-20 mx-[3.5vw] mt-[3vw]"
 					options={options}
 					defaultValue={options[0]}
 					theme={theme => ({
@@ -28,7 +28,7 @@ const SortDropdown: FC<ISortDropdownProps> = ({ setSortType }) => {
 						colors: {
 							...theme.colors,
 							primary25: '#F2F2F5',
-							primary: '#FF9902'
+							primary: '#123133'
 						}
 					})}
 					onChange={selectedOption => {

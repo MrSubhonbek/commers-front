@@ -21,7 +21,7 @@ const DynamicFavoriteButton = dynamic(() => import('./FavoriteButton'), {
 
 const ProductItem: FC<IProductItemProps> = ({ product }) => {
 	return (
-		<div className="animate-scaleIn hover:shadow-lg transition duration-300 ease-in-out">
+		<div className="animate-scaleIn hover:shadow-lg transition text-[#123133] duration-300 ease-in-out">
 			<div className="bg-white relative overflow-hidden h-full shadow-md">
 				<div className="absolute top-2 right-2 z-10">
 					<DynamicFavoriteButton productId={product.id} />
@@ -34,7 +34,7 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
 				</Link>
 				<div className="p-[2vh] h-full">
 					<Link href={`/product/${product.slug}`}>
-						<h3>{product.name}</h3>
+						<h3 className="text-[#123133]">{product.name}</h3>
 					</Link>
 					<Link
 						href={`/category/${product.category.slug}`}
@@ -43,7 +43,7 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
 						{product.category.name}
 					</Link>
 					<ProductRating product={product} />
-					<div className="text-[3.5vh] max-md:text-[3.5vw] font-semibold">
+					<div className="text-[3.5vh] max-md:text-[3.5vw] text-[#A86550] font-semibold">
 						{convertPrice(product.price)}
 					</div>
 				</div>

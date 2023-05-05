@@ -10,14 +10,14 @@ const SquareButton: FC<ISquareButtonProps> = ({ Icon, number, onClick }) => {
 	return (
 		<button
 			onClick={onClick}
-			className="h-[2vw] rounded-full w-[2vw] bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors duration-200 relative"
+			className="h-[2vw] rounded-full w-[2vw] bg-[#A86550] flex items-center justify-center hover:bg-[#A86550]/90 transition-colors duration-200 relative"
 		>
 			{!!number && (
-				<span className="flex h-[1vw] w-[1vw] items-center justify-center rounded-full bg-white p-[0.2vw] text-[0.7vw] text-secondary absolute -top-1 -right-1">
+				<span className="flex h-[1vw] w-[1vw] items-center text-[#123133] justify-center rounded-full bg-white p-[0.2vw] text-[0.7vw] absolute -top-1 -right-1">
 					{number}
 				</span>
 			)}
-			<Icon className="text-secondary" />
+			<Icon className="text-white" />
 		</button>
 	)
 }

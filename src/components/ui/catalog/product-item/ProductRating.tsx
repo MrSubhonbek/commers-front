@@ -20,6 +20,7 @@ const ProductRating: FC<IRatingProps> = ({ product }) => {
 					readonly
 					initialValue={rating}
 					SVGstyle={{
+						fill: '#fff1a',
 						display: `inline-block`
 					}}
 					SVGstrokeColor="#123132"
@@ -28,7 +29,9 @@ const ProductRating: FC<IRatingProps> = ({ product }) => {
 					transition
 				/>
 			</div>
-			<div className="text-[1.3vh]">({product.reviews.length} reviews)</div>
+			<div className="text-[1.3vh] text-[#123133]">
+				({product.reviews.length} reviews)
+			</div>
 		</div>
 	)
 }
