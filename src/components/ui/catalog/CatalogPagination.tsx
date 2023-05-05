@@ -40,7 +40,7 @@ const CatalogPagination: FC<ICatalogPaginationProps> = ({ data, title }) => {
 	const ln = response.length % 4
 
 	return (
-		<section className="flex flex-col h-full">
+		<section className="flex flex-col h-full ">
 			{title && <Heading title={title} />}
 			<SortDropdown sortType={sortType} setSortType={setSortType} />
 			<div className="grid grid-cols-4 max-md:grid-cols-1 max-lg:grid-cols-2 max-xl:grid-cols-3 gap-[3vw] p-[3.5vw]">

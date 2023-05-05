@@ -55,19 +55,22 @@ const Sidebar: FC = () => {
 				)}
 			</div>
 			<div className="flex flex-col justify-center items-center">
-				<a href="tel:89047679218" className="flex items-center gap-[1vh]">
+				<a
+					href="tel:89047679218"
+					className="flex items-center gap-[1vh] hover:text-[#a86550] transition-colors duration-200"
+				>
 					+7 (904)-767-92-18 <RiWhatsappFill />
 				</a>
 				{user ? (
 					<button
-						className="flex justify-center gap-1 items-center py-[0.5vw] hover:text-primary transition-colors duration-200"
+						className="flex justify-center gap-1 items-center py-[0.5vw] hover:text-[#a86550] transition-colors duration-200"
 						onClick={() => logout()}
 					>
 						<FiLogOut /> Logout
 					</button>
 				) : (
 					<button
-						className="flex justify-center items-center gap-1 py-[0.5vw] hover:text-primary transition-colors duration-200"
+						className="flex justify-center items-center gap-1 py-[0.5vw] hover:text-[#a86550] transition-colors duration-200"
 						onClick={() => replace('/auth')}
 					>
 						<FiLogIn /> Login
