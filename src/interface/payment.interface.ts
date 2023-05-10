@@ -32,7 +32,7 @@ export interface IPaymentResponse {
 }
 export type TypeData = {
 	status?: EnumOrderStatus
-	item: {
+	items: {
 		quantity: number
 		price: number
 		productId: number

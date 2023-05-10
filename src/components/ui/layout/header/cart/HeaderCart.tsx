@@ -18,7 +18,7 @@ import { OrderService } from '@/service/order.service'
 
 const Cart: FC = () => {
 	const { isShow, ref, setIsShow } = useOutside(false)
-	const { items, total } = useCart()
+	const { items: cart, total } = useCart()
 	const { reset } = useAction()
 	const { push } = useRouter()
 
@@ -26,10 +26,10 @@ const Cart: FC = () => {
 		['create order & payment'],
 		() =>
 			OrderService.place({
-				item: items.map(item => ({
+				items: cart.map(item => ({
 					price: item.price,
 					quantity: item.quantity,
-					productId: item.id
+					productId: item.product.id
 				}))
 			}),
 		{
@@ -44,7 +44,7 @@ const Cart: FC = () => {
 			<SquareButton
 				Icon={RiShoppingBagLine}
 				onClick={() => setIsShow(!isShow)}
-				number={items.length}
+				number={cart.length}
 			/>
 			<div
 				className={cn(
@@ -56,8 +56,8 @@ const Cart: FC = () => {
 					<div className="font-semibold mb-[2vw]">My cart</div>
 
 					<div>
-						{items.length ? (
-							items.map(item => <CartItem item={item} key={item.id} />)
+						{cart.length ? (
+							cart.map(item => <CartItem item={item} key={item.id} />)
 						) : (
 							<div className="font-light">Cart is empty!</div>
 						)}
@@ -72,7 +72,7 @@ const Cart: FC = () => {
 						<Button
 							variant="white"
 							className=" mt-[2vw]"
-							onClick={() => mutate}
+							onClick={() => mutate()}
 						>
 							Place order
 						</Button>
