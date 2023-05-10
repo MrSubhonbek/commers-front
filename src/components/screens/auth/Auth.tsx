@@ -44,9 +44,14 @@ const Auth: FC = () => {
 		)
 	return (
 		<Meta title="Auth">
-			<section className="flex h-screen">
+			<section className="flex h-screen bg-white">
+				<img
+					src="/photo_2023-05-09_13-12-43.jpg"
+					className="absolute -left-16 -top-16"
+					alt=""
+				/>
 				<form
-					className=" bg-white shadow  p-[3vh] m-auto"
+					className=" bg-bg-color shadow-md absolute right-[20vh] top-[20vh] z-10 p-[3vh] m-auto"
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<Heading
