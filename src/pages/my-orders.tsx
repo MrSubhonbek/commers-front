@@ -9,6 +9,7 @@ import { NextPageAuth } from '@/providers/auth-provider/auth-page.type'
 
 import { convertPrice } from '@/utils/convertPrice'
 
+import { EnumOrderStatus } from '@/interface/order.interface'
 import { OrderService } from '@/service/order.service'
 
 const MyOrders: NextPageAuth = () => {
@@ -22,21 +23,26 @@ const MyOrders: NextPageAuth = () => {
 	return (
 		<Meta title="My Orders">
 			<Layout>
-				<Heading title="My Orders" />
+				<Heading title="Мои заказы" />
 				<section>
 					{orders?.length ? (
-						orders.map(order => (
-							<div
-								key={order.id}
-								className="bg-primary text-white flex justify-between px-8 py-4 mt-4"
-							>
-								<span>#{order.id}</span>
-								<span>{new Date(order.createdAt).toLocaleDateString()}</span>
-								<span>{convertPrice(order.total)}</span>
-							</div>
-						))
+						orders.map(order => {
+							if (order.total !== 0)
+								return (
+									<div
+										key={order.id}
+										className="bg-primary text-white flex justify-between px-8 py-4 mt-4"
+									>
+										<span>#{order.id}</span>
+										<span>
+											{new Date(order.createdAt).toLocaleDateString()}
+										</span>
+										<span>{convertPrice(order.total)}</span>
+									</div>
+								)
+						})
 					) : (
-						<div>Order not found!</div>
+						<div className="py-8">Заказы не найдены!</div>
 					)}
 				</section>
 			</Layout>

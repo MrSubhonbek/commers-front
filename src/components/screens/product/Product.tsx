@@ -62,7 +62,7 @@ const Product: FC<IProductProps> = ({ product }) => {
 					</div>
 					<span>{product.descriptios}</span>
 					<div className="font-semibold mt-[3vh] mb-[1vh]">
-						Total Review :{' '}
+						Общая оценка :{' '}
 						<span className="font-normal">{product.reviews.length}</span>
 					</div>
 					<Rating
@@ -87,7 +87,7 @@ const Product: FC<IProductProps> = ({ product }) => {
 						}
 						variant="dark"
 					>
-						{currentElement ? 'Remove to Cart' : 'Add To Cart'}
+						{currentElement ? 'Удалить из корзина' : 'Добавить в корзина'}
 					</Button>
 					{profile && (
 						<Button

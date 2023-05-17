@@ -9,7 +9,7 @@ const ThanksPage: NextPage = () => {
 	return (
 		<Meta title="Thanks">
 			<Layout>
-				<Heading title="Thanks!" />
+				<Heading title="Спасибо за оплату!" />
 			</Layout>
 		</Meta>
 	)

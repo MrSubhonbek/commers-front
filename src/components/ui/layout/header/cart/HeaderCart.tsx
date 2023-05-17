@@ -53,19 +53,19 @@ const Cart: FC = () => {
 				)}
 			>
 				<div>
-					<div className="font-semibold mb-[2vw]">My cart</div>
+					<div className="font-semibold mb-[2vw]">Моя корзина</div>
 
 					<div>
 						{cart.length ? (
 							cart.map(item => <CartItem item={item} key={item.id} />)
 						) : (
-							<div className="font-light">Cart is empty!</div>
+							<div className="font-light">Корзина пуста!</div>
 						)}
 					</div>
 				</div>
 				<div>
 					<div className="mt-[2vh]">
-						<div>Total:</div>
+						<div>Цена:</div>
 						<div className="font-semibold">{convertPrice(total)}</div>
 					</div>
 					<div className="text-center">
@@ -74,7 +74,7 @@ const Cart: FC = () => {
 							className=" mt-[2vw]"
 							onClick={() => mutate()}
 						>
-							Place order
+							Оплатить
 						</Button>
 					</div>
 				</div>
