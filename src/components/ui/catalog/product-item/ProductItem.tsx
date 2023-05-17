@@ -37,10 +37,10 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
 						<h3 className="text-[#123133]">{product.name}</h3>
 					</Link>
 					<Link
-						href={`/category/${product.category.slug}`}
+						href={`/category/${product?.category?.slug}`}
 						className="text-aqua text-[1.5vh] max-md:text-[1.5vw] mb-2"
 					>
-						{product.category.name}
+						{product.category?.name}
 					</Link>
 					<ProductRating product={product} />
 					<div className="text-[3.5vh] max-md:text-[3.5vw] text-[#A86550] font-semibold">

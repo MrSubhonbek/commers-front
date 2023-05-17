@@ -26,9 +26,11 @@ const MyOrders: NextPageAuth = () => {
 				<section>
 					{orders?.length ? (
 						orders.map(order => (
-							<div key={order.id}>
+							<div
+								key={order.id}
+								className="bg-primary text-white flex justify-between px-8 py-4 mt-4"
+							>
 								<span>#{order.id}</span>
-								<span>{order.status}</span>
 								<span>{new Date(order.createdAt).toLocaleDateString()}</span>
 								<span>{convertPrice(order.total)}</span>
 							</div>

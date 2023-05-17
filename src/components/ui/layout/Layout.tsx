@@ -1,7 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react'
 
-import img from '../catalog/photo_2023-05-05_15-54-29.jpg'
-
 import Header from './header/Header'
 import Sidebar from './sidebar/Sidebar'
 

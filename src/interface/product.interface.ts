@@ -48,3 +48,12 @@ export type TypePaginationProduct = {
 	product: IProduct[]
 	length: number
 }
+export type TypeCreate = {
+	name: string
+	userId?: number
+	images: string[]
+	slug: string
+	descriptios: string
+	price: number
+	categoryId: number
+}

@@ -4,7 +4,9 @@ import {
 	IProduct,
 	IProductData,
 	IProductFilters,
-	TypePaginationProduct
+	TypeCreate,
+	TypePaginationProduct,
+	TypeProduct
 } from '@/interface/product.interface'
 
 const Products = 'product'
@@ -41,10 +43,11 @@ export const ProductService = {
 			method: 'GET'
 		})
 	},
-	async create() {
+	async create(data: TypeCreate) {
 		return instance<IProduct>({
 			url: Products,
-			method: 'POST'
+			method: 'POST',
+			data
 		})
 	},
 	async update(id: string, data: IProductData) {

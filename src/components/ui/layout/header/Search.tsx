@@ -4,7 +4,6 @@ import React, { FC, useState } from 'react'
 const Search: FC = () => {
 	const { replace } = useRouter()
 	const [searchText, setSearchText] = useState('')
-	console.log(searchText)
 
 	return (
 		<div className="relative w-full">
