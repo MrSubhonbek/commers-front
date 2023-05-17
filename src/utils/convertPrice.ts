@@ -1,6 +1,6 @@
 export const convertPrice = (price: number) => {
-	return price.toLocaleString('en-US', {
+	return price.toLocaleString('Ru-ru', {
 		style: 'currency',
-		currency: 'USD'
+		currency: 'RUB'
 	})
 }

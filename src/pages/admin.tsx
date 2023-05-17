@@ -21,23 +21,23 @@ const AdminPage: NextPageAuth = () => {
 	const { profile } = useProfile()
 	const isAdmin = profile?.email !== 'admin@gmail.com'
 	const [isModalOpen, setIsModalOpen] = useState(false)
-	const { mutate } = useMutation(
-		['create order & payment'],
-		(data: TypeCreate) =>
-			ProductService.create({
-				slug: data.name.toLowerCase(),
-				userId: Number(profile?.id),
-				name: data.name,
-				descriptios: data.descriptios,
-				images: data.images,
-				price: data.price,
-				categoryId: data.categoryId
-			})
+	const { mutate } = useMutation(['create product'], (data: TypeCreate) =>
+		ProductService.create({
+			slug: data.name.toLowerCase(),
+			userId: Number(profile?.id),
+			name: data.name,
+			descriptios: data.descriptios,
+			images: data.images,
+			price: data.price,
+			categoryId: data.categoryId
+		})
+	)
+	const { mutate: deleteItem } = useMutation(['delete product'], (id: string) =>
+		ProductService.delete(id)
 	)
 	const { data: response, isLoading } = useQuery(['product'], () =>
 		ProductService.getAll()
 	)
-	console.log(response)
 
 	const {
 		register: formRegister,
@@ -63,6 +63,7 @@ const AdminPage: NextPageAuth = () => {
 
 	const handleCancel = () => {
 		setIsModalOpen(false)
+		window.location.reload()
 	}
 
 	return (
@@ -74,18 +75,27 @@ const AdminPage: NextPageAuth = () => {
 					<>
 						<Heading title="Товары" className="pl-8" />
 						{response?.product.map((item, index) => (
-							<>
-								<div
-									key={index}
-									className="px-8 flex justify-between py-4 bg-primary text-white mt-8"
-								>
-									<div className="flex gap-8">
-										<span>#{item.id}</span>
-										<span>{item.name}</span>
-									</div>
-									<span>{convertPrice(item.price)}</span>
+							<div
+								key={index}
+								className="px-8 flex justify-between py-4 bg-primary text-white mt-8"
+							>
+								<div className="flex gap-8">
+									<span>#{item.id}</span>
+									<span>{item.name}</span>
 								</div>
-							</>
+								<div className="flex gap-8 items-center">
+									<span>{convertPrice(item.price)}</span>
+									<Button
+										variant="white"
+										onClick={() => {
+											deleteItem(item.id.toString())
+											window.location.reload()
+										}}
+									>
+										Удалить
+									</Button>
+								</div>
+							</div>
 						))}
 						<Button onClick={showModal} className="mt-8 px-8 py-4">
 							Добавить товар
