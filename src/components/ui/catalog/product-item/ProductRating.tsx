@@ -30,7 +30,7 @@ const ProductRating: FC<IRatingProps> = ({ product }) => {
 				/>
 			</div>
 			<div className="text-[1.3vh] text-[#123133]">
-				({product.reviews.length} reviews)
+				({product.reviews.length} оценок)
 			</div>
 		</div>
 	)

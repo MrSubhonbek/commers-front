@@ -10,14 +10,14 @@ interface ISortDropdownProps {
 
 const SortDropdown: FC<ISortDropdownProps> = ({ setSortType }) => {
 	const options = [
-		{ value: EnumProductSort.NEWEST, label: EnumProductSort.NEWEST },
-		{ value: EnumProductSort.OLDEST, label: EnumProductSort.OLDEST },
-		{ value: EnumProductSort.LOW_PRICE, label: EnumProductSort.LOW_PRICE },
-		{ value: EnumProductSort.HIGH_PRICE, label: EnumProductSort.HIGH_PRICE }
+		{ value: EnumProductSort.NEWEST, label: 'Новое' },
+		{ value: EnumProductSort.OLDEST, label: 'Старые' },
+		{ value: EnumProductSort.LOW_PRICE, label: 'Низкие цены' },
+		{ value: EnumProductSort.HIGH_PRICE, label: 'Высокие цены' }
 	]
 	return (
 		<div className="flex justify-end">
-			<div className="w-fit">
+			<div className="w-[30vw]">
 				<Select
 					className="absolute text-[#123133] z-20 mx-[3.5vw] mt-[3vw]"
 					options={options}

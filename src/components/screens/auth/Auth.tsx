@@ -55,7 +55,7 @@ const Auth: FC = () => {
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<Heading
-						title={type === 'register' ? 'Register' : 'Login'}
+						title={type === 'register' ? 'Регистрация' : 'Логин'}
 						className="text-center text-[3vh] h-[3vh]"
 					/>
 
@@ -71,7 +71,7 @@ const Auth: FC = () => {
 						})}
 					/>
 					<Field
-						placeholder="Password"
+						placeholder="Пароль"
 						error={errors.password?.message}
 						type="password"
 						{...formRegister('password', {
@@ -83,13 +83,13 @@ const Auth: FC = () => {
 						})}
 					/>
 					<div className="flex justify-between">
-						<Button type="submit">Auth</Button>
+						<Button type="submit">Войти</Button>
 						<button
 							type="button"
 							onClick={() => setType(type === 'login' ? 'register' : 'login')}
 							className="opacity-20"
 						>
-							{type === 'login' ? 'Register' : 'Login'}
+							{type === 'login' ? 'Регистрация' : 'Войти'}
 						</button>
 					</div>
 				</form>

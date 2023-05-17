@@ -12,7 +12,7 @@ const Search: FC = () => {
 				onChange={e => setSearchText(e.currentTarget.value)}
 				id="search-dropdown"
 				className="block p-2.5 w-full h-[4vh] z-20 text-sm text-white bg-secondary placeholder:text-[1vw] border border-[#e5e5e5] outline-none "
-				placeholder="Search..."
+				placeholder="Поиск..."
 			/>
 			<button
 				onClick={() => {

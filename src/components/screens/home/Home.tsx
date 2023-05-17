@@ -10,7 +10,7 @@ const Home: FC<TypePaginationProduct> = data => {
 	return (
 		<Meta title="Home">
 			<Layout>
-				<CatalogPagination title="Products" data={data} />
+				<CatalogPagination title="Товары" data={data} />
 			</Layout>
 		</Meta>
 	)

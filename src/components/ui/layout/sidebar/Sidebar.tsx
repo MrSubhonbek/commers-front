@@ -66,14 +66,14 @@ const Sidebar: FC = () => {
 						className="flex justify-center gap-1 items-center py-[0.5vw] hover:text-[#a86550] transition-colors duration-200"
 						onClick={() => logout()}
 					>
-						<FiLogOut /> Logout
+						<FiLogOut /> Выйти
 					</button>
 				) : (
 					<button
 						className="flex justify-center items-center gap-1 py-[0.5vw] hover:text-[#a86550] transition-colors duration-200"
 						onClick={() => replace('/auth')}
 					>
-						<FiLogIn /> Login
+						<FiLogIn /> Войти
 					</button>
 				)}
 			</div>
