@@ -26,7 +26,7 @@ const Sidebar: FC = () => {
 	const { logout } = useAction()
 	const { user } = useAuth()
 	return (
-		<aside className="flex flex-col justify-between bg-secondary text-white min-h-[90vh] h-full">
+		<aside className="flex flex-col  justify-between bg-secondary text-white min-h-[90vh] max-md:max-h-[90vh] h-full">
 			<div>
 				{isLoading ? (
 					<Loader />

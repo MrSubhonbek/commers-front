@@ -6,19 +6,19 @@ const Search: FC = () => {
 	const [searchText, setSearchText] = useState('')
 
 	return (
-		<div className="relative w-full">
+		<div className="relative w-full max-md:hidden">
 			<input
 				type="search"
 				onChange={e => setSearchText(e.currentTarget.value)}
 				id="search-dropdown"
-				className="block p-2.5 w-full h-[4vh] z-20 text-sm text-white bg-secondary placeholder:text-[1vw] border border-[#e5e5e5] outline-none "
+				className="block px-2.5 w-full h-[4vh] z-20 text-white bg-secondary  border border-[#e5e5e5] outline-none "
 				placeholder="Поиск..."
 			/>
 			<button
 				onClick={() => {
 					if (searchText) replace(`/q?searchTerm=${searchText}`)
 				}}
-				className="absolute top-0 right-0 h-[4vh] w-[4vh] flex items-center justify-center p-2.5 text-sm font-medium text-black bg-[#e5e5e5] border border-[#e5e5e5] outline-none hover:bg-primary/90"
+				className="absolute top-0 right-0 h-[4vh] w-[4vh] flex items-center justify-center  text-sm font-medium text-black bg-[#e5e5e5] border border-[#e5e5e5] outline-none hover:bg-primary/90"
 			>
 				<svg
 					aria-hidden="true"

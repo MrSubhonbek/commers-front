@@ -15,7 +15,7 @@ const HeaderProfile: FC = () => {
 						height={43}
 						src={profile.avatarPath}
 						alt="profile avatar"
-						className="rounded-full border border-solid animate-opacity w-[2vw] h-[2vw]"
+						className="rounded-full border border-solid animate-opacity w-[25px] h-[25px]"
 					/>
 				</Link>
 			)}

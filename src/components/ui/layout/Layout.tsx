@@ -8,12 +8,14 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
 		<div>
 			<Header />
 			<div
-				className="grid"
+				className="grid max-md:block"
 				style={{
 					gridTemplateColumns: '1fr 4fr'
 				}}
 			>
-				<Sidebar />
+				<div className="max-md:hidden">
+					<Sidebar />
+				</div>
 				<main
 					className="p-[3vh] bg-[url('/photo_2023-05-05_16-51-33.jpg')]"
 					style={{ backgroundSize: '100%' }}
