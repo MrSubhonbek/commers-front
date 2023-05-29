@@ -14,6 +14,8 @@ import { convertPrice } from '@/utils/convertPrice'
 import Images from '../../ui/Images'
 
 import { IProduct } from '@/interface/product.interface'
+import { IReviewData } from '@/interface/review.interface'
+import { ReviewService } from '@/service/review.service'
 import { UserServices } from '@/service/user.service'
 
 interface IProductProps {
@@ -49,6 +51,13 @@ const Product: FC<IProductProps> = ({ product }) => {
 		) || 0
 	)
 
+	const { mutate: rate } = useMutation(['leave product'], (data: IReviewData) =>
+		ReviewService.leave({
+			rating: data.rating,
+			text: data.text,
+			productId: Number(product?.id)
+		})
+	)
 	return (
 		<div className="flex justify-center gap-[1vw] mt-[1vw] max-md:flex-col max-md:h-[90vh]">
 			<div className="w-[35vw] h-[35vw] max-md:w-full max-md:h-full">
@@ -66,15 +75,16 @@ const Product: FC<IProductProps> = ({ product }) => {
 						<span className="font-normal">{product.reviews.length}</span>
 					</div>
 					<Rating
-						readonly
 						initialValue={rating}
 						SVGstyle={{
 							display: `inline-block`
 						}}
-						SVGstrokeColor="#123132"
 						size={40}
-						allowFraction
 						transition
+						onClick={(grade: number) => {
+							rate({ productId: Number(profile?.id), rating: grade, text: '' })
+							setRating(grade)
+						}}
 					/>
 				</div>
 				<div className="w-full flex gap-[1vw]">

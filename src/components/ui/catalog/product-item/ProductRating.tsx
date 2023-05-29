@@ -1,7 +1,12 @@
+import { useMutation } from '@tanstack/react-query'
 import React, { FC, useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 
+import { useProfile } from '@/hooks/useProfile'
+
 import { IProduct } from '@/interface/product.interface'
+import { IReviewData } from '@/interface/review.interface'
+import { ReviewService } from '@/service/review.service'
 
 interface IRatingProps {
 	product: IProduct
@@ -13,20 +18,30 @@ const ProductRating: FC<IRatingProps> = ({ product }) => {
 				product.reviews.length
 		) || 0
 	)
+	const { profile } = useProfile()
+
+	const { mutate } = useMutation(['leave product'], (data: IReviewData) =>
+		ReviewService.leave({
+			rating: data.rating,
+			text: data.text,
+			productId: Number(product?.id)
+		})
+	)
 	return (
 		<div className="mb-2 ">
 			<div className="mr-1 flex items-center">
 				<Rating
-					readonly
 					initialValue={rating}
 					SVGstyle={{
-						fill: '#fff1a',
 						display: `inline-block`
 					}}
-					SVGstrokeColor="#123132"
 					size={20}
-					allowFraction
 					transition
+					onClick={(rate: number) => {
+						mutate({ productId: Number(profile?.id), rating: rate, text: '' })
+						setRating(rate)
+						window.location.reload()
+					}}
 				/>
 			</div>
 			<div className="text-[1.3vh] text-[#123133]">

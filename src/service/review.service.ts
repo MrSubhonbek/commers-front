@@ -10,11 +10,14 @@ export const ReviewService = {
 			method: 'GET'
 		})
 	},
-	async leave(productId: string, data: IReviewData) {
+	async leave(data: IReviewData) {
 		return instance<IReview>({
-			url: `${Reviews}/leave/:${productId}`,
+			url: `${Reviews}/leave/:${data.productId}`,
 			method: 'POST',
-			data
+			data: {
+				rating: data.rating,
+				text: data.text
+			}
 		})
 	},
 	async getAverage(productId: number) {

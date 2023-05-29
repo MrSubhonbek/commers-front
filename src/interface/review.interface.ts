@@ -10,4 +10,5 @@ export interface IReview {
 export interface IReviewData {
 	rating: number
 	text: string
+	productId: number
 }

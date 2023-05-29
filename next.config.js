@@ -6,7 +6,7 @@ const nextConfig = {
 		APP_URL: process.env.APP_URL
 	},
 	images: {
-		domains: ['loremflickr.com', 'cloudflare-ipfs.com', '*.com']
+		domains: ['loremflickr.com', 'cloudflare-ipfs.com']
 	}
 }
 
