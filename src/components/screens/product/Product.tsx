@@ -50,14 +50,14 @@ const Product: FC<IProductProps> = ({ product }) => {
 	)
 
 	return (
-		<div className="flex justify-center gap-[1vw] mt-[1vw]">
-			<div className="w-[35vw] h-[35vw]">
+		<div className="flex justify-center gap-[1vw] mt-[1vw] max-md:flex-col max-md:h-[90vh]">
+			<div className="w-[35vw] h-[35vw] max-md:w-full max-md:h-full">
 				<Images images={product.images} />
 			</div>
 			<div className="flex flex-col justify-between">
 				<div>
-					<h3 className="font-semibold text-[2.5vw]">{product.name}</h3>
-					<div className="font-semibold text-[2.5vw]  my-[3vh]">
+					<h3 className="font-semibold text-xl">{product.name}</h3>
+					<div className="font-semibold text-xl  my-[3vh]">
 						{convertPrice(product.price)}
 					</div>
 					<span>{product.descriptios}</span>

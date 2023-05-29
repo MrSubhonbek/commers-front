@@ -10,7 +10,7 @@ import Search from './Search'
 import HeaderCart from './cart/HeaderCart'
 
 const Header: FC = () => {
-	const [isShowMenu, setIsShowMenu] = useState(true)
+	const [isShowMenu, setIsShowMenu] = useState(false)
 	return (
 		<header
 			className="bg-secondary w-full items-center  grid text-white h-[10vh] max-md:flex max-md:justify-between"

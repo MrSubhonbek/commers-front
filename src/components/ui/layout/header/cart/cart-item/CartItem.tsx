@@ -9,13 +9,14 @@ import { ICartItem } from '@/interface/cart.interface'
 
 const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 	return (
-		<div className="flex gap-[2vh] mt-[2vh]">
-			<div className="w-[10vw]">
+		<div className="flex gap-[2vh] mt-[2vh] max-md:flex-col">
+			<div className="w-[10vw] max-md:w-full">
 				<Image
 					src={item.product.images[0]}
 					loading="lazy"
 					width={100}
 					height={100}
+					className="max-md:w-full"
 					alt={item.product.name}
 				/>
 			</div>

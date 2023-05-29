@@ -48,7 +48,7 @@ const Cart: FC = () => {
 			/>
 			<div
 				className={cn(
-					'absolute top-[4vw] w-[20vw] h-[50vh] overflow-auto flex flex-col justify-between -left-[17vw] bg-secondary px-[1vw] py-[1vw] z-30 text-white transition-all',
+					'absolute top-[4vw] w-[20vw] max-md:w-[300px] h-[50vh] overflow-auto flex flex-col justify-between -left-[17vw] max-md:-left-[270px] max-md:top-6 bg-secondary px-[1vw] py-[1vw] z-30 text-white transition-all',
 					isShow ? 'block' : 'hidden'
 				)}
 			>

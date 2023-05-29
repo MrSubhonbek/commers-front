@@ -44,14 +44,14 @@ const Auth: FC = () => {
 		)
 	return (
 		<Meta title="Auth">
-			<section className="flex h-screen bg-white">
+			<section className="flex h-screen bg-white max-md:flex max-md:flex-col justify-center">
 				<img
 					src="/photo_2023-05-09_13-12-43.jpg"
-					className="absolute -left-16 -top-16"
+					className="absolute -left-16 -top-16 max-md:left-0 max-md:top-0"
 					alt=""
 				/>
 				<form
-					className=" bg-bg-color shadow-md absolute right-[20vh] top-[20vh] z-10 p-[3vh] m-auto"
+					className=" bg-bg-color shadow-md absolute right-[20vh] top-[20vh] z-10 p-[3vh] m-auto max-md:static"
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<Heading
